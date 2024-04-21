@@ -1,0 +1,77 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    /* Установим позиционирование для body */
+    min-height: 100vh;
+    background: linear-gradient(to bottom, white 0%, #FFED00 50%, #FDC200 100%);
+}
+
+
+/* Псевдоэлемент для наложения картинки */
+
+body::after {
+    content: "";
+    background-image: url('/img/Sign_yellow_background/oggetto-flat-logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top right;
+    /* Изменено на top right */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    /* Изменено на 50% ширины */
+    height: 100%;
+    z-index: 1;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+form {
+    display: grid;
+    gap: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, white 0%, #FFED00 50%, #FDC200 100%);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #ecb500;
+}

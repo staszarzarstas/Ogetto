@@ -1,0 +1,198 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    /* Установим позиционирование для body */
+    min-height: 100vh;
+    background: linear-gradient(to bottom, white 0%, #FFED00 50%, #FDC200 100%);
+}
+
+
+/* Псевдоэлемент для наложения картинки */
+
+body::after {
+    content: "";
+    background-image: url('/img/Sign_yellow_background/oggetto-flat-logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top right;
+    /* Изменено на top right */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    /* Изменено на 50% ширины */
+    height: 100%;
+    z-index: 1;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+form {
+    display: grid;
+    gap: 20px;
+}
+
+.btn-google::before {
+    content: "";
+    /* background-image: url('/img/google-icon-logo-svgrepo-com.svg'); */
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-size: cover;
+}
+
+.btn-google:hover {
+    background-color: #FFED00;
+}
+
+.btn-google {
+    display: inline-block;
+    background: linear-gradient(to right, white 0%, #FFED00 50%, #FDC200 100%);
+    color: rgb(0, 0, 0);
+    padding: 10px 30px 10px 40px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: calc(100% - 20px);
+    /* Изменим ширину инпутов, чтобы учесть padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+    outline: none;
+    /* Убираем обводку при фокусе */
+}
+
+
+/* Добавим стили при фокусе */
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    border-color: #FFED00;
+    /* Изменяем цвет рамки при фокусе */
+    box-shadow: 0 0 5px rgba(255, 237, 0, 0.5);
+    /* Добавляем тень при фокусе */
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, #FFED00 0%, #FDC200 100%);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+    /* Убираем обводку при фокусе */
+}
+
+button[type="submit"]:hover {
+    background-color: #ecb500;
+}
+
+select {
+    /* Основные стили для select */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+    appearance: none;
+    /* Убираем стандартное отображение стрелки селекта */
+    -webkit-appearance: none;
+    /* Для поддержки вебкит-браузеров */
+    -moz-appearance: none;
+    /* Для поддержки Firefox */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" viewBox="0 0 12 6"><path fill="%23000" d="M6 4.38l-4.56-4.37L0 1.63 6 6l6-4.37-1.44-1.39z"/></svg>');
+    /* Добавляем кастомную иконку стрелки */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    /* Располагаем иконку справа */
+}
+
+option {
+    /* Стили для option */
+    background-color: white;
+    /* Фон */
+    color: black;
+    /* Цвет текста */
+    padding: 10px;
+    border-radius: 40px;
+}
+
+select:hover,
+select:focus {
+    border-color: #FFED00;
+    /* Изменение цвета рамки при наведении или фокусе */
+}
+
+
+/* Стили для поля ввода даты и времени */
+
+input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="datetime-local"]:hover,
+input[type="datetime-local"]:focus {
+    border-color: #FFED00;
+    /* Изменение цвета рамки при наведении или фокусе */
+}
+
+
+/* Стили для аватарки */
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    /* Размещаем по центру по горизонтали */
+    margin-bottom: 20px;
+    /* Добавим небольшой отступ снизу */
+}
+
+.avatar .photo {
+    width: 100px;
+    /* Укажем фиксированную ширину для аватарки */
+    border-radius: 50%;
+    /* Сделаем аватарку круглой */
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="/styles/profile.css">
+</head>
+
+<body>
+
+    <!-- Псевдоэлемент для наложения изображения -->
+    <div class="background-overlay"></div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Мой профиль</h2>
+            <div class="avatar">
+                <img src="/img/avatar-18.png" alt="ava" class="photo" style="width: 50px;">
+            </div>
+            <form id="meetingForm">
+                <!-- Заменяем select на текстовое поле -->
+                <label for="hobby">Ваше хобби:</label>
+                <input type="text" id="hobby" name="hobby" placeholder="Введите ваше хобби" required>
+                <!-- Добавляем кнопку для сохранения введенного текста -->
+                <button type="button" onclick="saveHobby()" class="btn-google">Сохранить хобби</button>
+                <!-- Элемент для отображения сохраненного хобби -->
+                <div id="savedHobby" style="display: none;"></div>
+                <!-- Добавляем поле для ввода даты и времени -->
+                <label for="meetingDate">Дата и время замечания:</label>
+                <input type="datetime-local" id="meetingDate" name="meetingDate" required>
+                <!-- Выбор типа встречи -->
+                <label for="meetingType">Тип встречи:</label>
+                <select id="meetingType" name="meetingType">
+                    <option class="type_vstr" value="online">Онлайн</option>
+                    <option class="type_vstr" value="offline">Офлайн</option>
+                </select>
+            </form>
+            <div id="meetingResult"></div>
+        </div>
+    </div>
+
+    <script>
+        // Функция для сохранения введенного хобби
+        function saveHobby() {
+            var hobby = document.getElementById('hobby').value; // Получаем введенное хобби
+            var savedHobby = document.getElementById('savedHobby');
+            // Отображаем сохраненное хобби
+            savedHobby.innerHTML = '<strong>Ваше хобби:</strong> ' + hobby;
+            savedHobby.style.display = 'block'; // Показываем элемент
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var meetingForm = document.getElementById('meetingForm');
+            var savedHobby = document.getElementById('savedHobby');
+            var hobbyInput = document.getElementById('hobbyInput');
+
+            meetingForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                var hobbyValue = hobbyInput.value.trim(); // Получаем значение из текстового поля хобби
+                if (hobbyValue !== '') {
+                    var savedHobbyText = savedHobby.textContent.trim(); // Получаем текущий текст сохраненного хобби
+                    if (savedHobbyText !== '') {
+                        savedHobbyText += ', ' + hobbyValue; // Добавляем новое хобби к старому, если уже есть сохраненное хобби
+                    } else {
+                        savedHobbyText = hobbyValue; // Если нет сохраненного хобби, просто устанавливаем новое значение
+                    }
+                    savedHobby.textContent = savedHobbyText; // Устанавливаем обновленный текст сохраненного хобби
+                    hobbyInput.value = ''; // Очищаем текстовое поле хобби
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
